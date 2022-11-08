@@ -16,6 +16,9 @@ test('test', async ({ page }) => {
 
   await login.getByLabel('Salasana').click();
 
-  expect(login.getByText('Tarkista sähköpostiosoitteen muoto.'));
+  await login.getByText('Tarkista sähköpostiosoitteen muoto.').click();
+
+  const error = login.getByText('Tarkista sähköpostiosoitteen muoto.')
+  await expect(error).toContainText('Tarkista sähköpostiosoitteen muoto.')
 
 });
